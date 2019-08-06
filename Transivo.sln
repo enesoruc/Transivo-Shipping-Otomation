@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transivo.Model", "Transivo.Model\Transivo.Model.csproj", "{5F60DCEA-4BF2-4A82-BC88-ED7E104FF2A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transivo.BLL", "Transivo.BLL\Transivo.BLL.csproj", "{DE69ADE8-5DD0-4050-BD36-FC0DB42E0191}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transivo.DAL", "Transivo.DAL\Transivo.DAL.csproj", "{0166BC74-1F75-4C69-9482-D41281D055D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transivo.Core", "Transivo.Core\Transivo.Core.csproj", "{66F2BF0B-6F29-4C08-A0EB-2D6642EDC14E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transivo.Exception", "Transivo.Exception\Transivo.Exception.csproj", "{70EBDE5C-E3DB-45B5-8348-033A3676F2F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transivo.UI.MVC", "Transivo.UI.MVC\Transivo.UI.MVC.csproj", "{4E80A8C9-15D1-4D15-BB78-2EC0C28BF305}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F60DCEA-4BF2-4A82-BC88-ED7E104FF2A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F60DCEA-4BF2-4A82-BC88-ED7E104FF2A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F60DCEA-4BF2-4A82-BC88-ED7E104FF2A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F60DCEA-4BF2-4A82-BC88-ED7E104FF2A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE69ADE8-5DD0-4050-BD36-FC0DB42E0191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE69ADE8-5DD0-4050-BD36-FC0DB42E0191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE69ADE8-5DD0-4050-BD36-FC0DB42E0191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE69ADE8-5DD0-4050-BD36-FC0DB42E0191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0166BC74-1F75-4C69-9482-D41281D055D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0166BC74-1F75-4C69-9482-D41281D055D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0166BC74-1F75-4C69-9482-D41281D055D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0166BC74-1F75-4C69-9482-D41281D055D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66F2BF0B-6F29-4C08-A0EB-2D6642EDC14E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66F2BF0B-6F29-4C08-A0EB-2D6642EDC14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66F2BF0B-6F29-4C08-A0EB-2D6642EDC14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66F2BF0B-6F29-4C08-A0EB-2D6642EDC14E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70EBDE5C-E3DB-45B5-8348-033A3676F2F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70EBDE5C-E3DB-45B5-8348-033A3676F2F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70EBDE5C-E3DB-45B5-8348-033A3676F2F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70EBDE5C-E3DB-45B5-8348-033A3676F2F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E80A8C9-15D1-4D15-BB78-2EC0C28BF305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E80A8C9-15D1-4D15-BB78-2EC0C28BF305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E80A8C9-15D1-4D15-BB78-2EC0C28BF305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E80A8C9-15D1-4D15-BB78-2EC0C28BF305}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32E7BC96-B5F4-4C45-8636-C5AECE69A0F4}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/mertoguz
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Transivo.BLL\\Transivo.BLL.csproj
+		SccProjectName1 = Transivo.BLL
+		SccLocalPath1 = Transivo.BLL
+		SccProjectUniqueName2 = Transivo.Core\\Transivo.Core.csproj
+		SccProjectName2 = Transivo.Core
+		SccLocalPath2 = Transivo.Core
+		SccProjectUniqueName3 = Transivo.DAL\\Transivo.DAL.csproj
+		SccProjectName3 = Transivo.DAL
+		SccLocalPath3 = Transivo.DAL
+		SccProjectUniqueName4 = Transivo.Exception\\Transivo.Exception.csproj
+		SccProjectName4 = Transivo.Exception
+		SccLocalPath4 = Transivo.Exception
+		SccProjectUniqueName5 = Transivo.Model\\Transivo.Model.csproj
+		SccProjectName5 = Transivo.Model
+		SccLocalPath5 = Transivo.Model
+		SccProjectUniqueName6 = Transivo.UI.MVC\\Transivo.UI.MVC.csproj
+		SccProjectName6 = Transivo.UI.MVC
+		SccLocalPath6 = Transivo.UI.MVC
+	EndGlobalSection
+EndGlobal

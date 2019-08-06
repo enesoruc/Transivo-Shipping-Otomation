@@ -1,0 +1,167 @@
+﻿@using Transivo.Model.Models
+@using Transivo.UI.MVC.Models
+@model RegisterAdminAndCompanyViewModel
+
+@{
+    List<Country> countries = ViewBag.Countries;
+}
+
+<section style=" background-color:black;height:120px"></section>
+<!--== Login Page Content Start ==-->
+<section id="lgoin-page-wrap" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 m-auto">
+                <div class="login-page-content">
+                    <div class="login-form">
+
+                        <form class="login_form" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            <h3>Şirket Kayıt Formu</h3>
+                            <span>'*' lı Alanların Doldurulması Zorunludur</span>
+                            <div class="username">
+                                @Html.TextBoxFor(a => a.CompanyName, new { type = "text", placeholder = "Şirket adı*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.CompanyName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="username">
+                                @Html.TextBoxFor(a => a.Phone, new { type = "text", placeholder = "(90)-(555)-555-55-55*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.Phone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="username">
+                                @Html.TextBoxFor(a => a.TaxNumber, new { type = "text", placeholder = "Vergi no*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.TaxNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="username">
+                                @Html.TextBoxFor(a => a.About, new { type = "text", placeholder = "Açıklama*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.About, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="username">
+                                @Html.TextBoxFor(a => a.Freight, new { type = "text", placeholder = "Km Başı Ücret*", @class = "form-control" })
+                            </div>
+                            <h3>Şirket Admin Kayıt Formu</h3>
+
+                            <div class="username">
+                                @Html.TextBoxFor(a => a.EMail, new { type = "email", placeholder = "EMail*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.EMail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="username">
+                                @Html.TextBoxFor(a => a.Username, new { type = "text", placeholder = "Kullanıcı adı*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.Username, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="password">
+                                @Html.TextBoxFor(a => a.Password, new { type = "password", id = "password", placeholder = "Şifre*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="password">
+                                @Html.TextBoxFor(a => a.RePassword, new { type = "password", id = "rePassword", placeholder = "Şifre tekrarı*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.RePassword, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="password">
+                                <table>
+                                    <tr>
+                                        <td>Logo Yükle : </td>
+                                        <td><input type="file" id="customFile" name="fileUpload"></td>
+                                    </tr>
+                                </table>
+                                <label>En iyi çözünürlük değerleri 300x300px fotoğraflarda sağlanır</label>
+                            </div>
+                            @if (ViewBag.Message != null)
+                            {
+                                <span>@ViewBag.Message</span>
+                            }
+                            <br />
+                            <div class="log-btn">
+                                <button type="submit" value="submit" id="btnSubmit"><i class="fa fa-check-square"></i> ONAYLA</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--== Login Page Content End ==-->
+
+@section scripts{
+
+    @*<script>
+            // Add the following code if you want the name of the file appear on select
+            $("#customFile").on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+        </script>*@
+    @*<script>
+            $("#btnSubmit").click(function () {
+                if ($("#password").val() != $("#rePassword").val()) {
+                    $.ajax({
+                        url: window.location.reload,
+                        type: "GET",
+                        success: function () {
+                            alert(@ViewBag.Message);
+                        }
+                    });
+                } else {
+                    $.ajax({
+                        url: "/Account/Login",
+                        type: "POST",
+                        success: function (reponse) {
+                            alert(@ViewBag.Message);
+                        },
+                        error: function (err) {
+                            window.location.reload;
+                            console.log(err);
+                        }
+                    });
+                }
+              });
+        </script>*@
+}
+
+
+@*@section scripts{
+    @*<script>
+        $("#countries").change(){
+            var country = $(this);
+            var countryID = country.val();
+
+            if (countryID != 0) {
+                $.ajax({
+                    url: '@Url.Action("GetCitiesByCountry", "Account")' + '/' + countryID,
+                    type: "GET",
+                    success: function (resp) {
+                        var cities = document.getElementById("cities");
+
+                        for (var i = 0; i < resp.length; i++) {
+                            var cityName = resp[i].Name;
+                            var cityID = resp[i].ID;
+                            var opt = $("<option></option>");
+                            opt.text(cityName);
+                            opt.attr("value", cityID);
+
+                            cities.append(opt);
+                        }
+                    },
+                    error: function (err) {
+                        alert("Ülke bulunamadı!");
+                        console.log(err);
+                    }
+                });
+        }*@
+@*</script>*@

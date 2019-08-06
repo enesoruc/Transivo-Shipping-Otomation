@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE69ADE8-5DD0-4050-BD36-FC0DB42E0191}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Transivo.BLL</RootNamespace>
+    <AssemblyName>Transivo.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IAddressService.cs" />
+    <Compile Include="Abstract\IAdminRoleService.cs" />
+    <Compile Include="Abstract\IBaseService.cs" />
+    <Compile Include="Abstract\ICityService.cs" />
+    <Compile Include="Abstract\IAdminService.cs" />
+    <Compile Include="Abstract\ICompanyService.cs" />
+    <Compile Include="Abstract\ICountryService.cs" />
+    <Compile Include="Abstract\IDistrictService.cs" />
+    <Compile Include="Abstract\IDriverService.cs" />
+    <Compile Include="Abstract\IMessageService.cs" />
+    <Compile Include="Abstract\IPayTypeService.cs" />
+    <Compile Include="Abstract\IShipCategoryService.cs" />
+    <Compile Include="Abstract\IShippingService.cs" />
+    <Compile Include="Abstract\IUserRoleService.cs" />
+    <Compile Include="Abstract\IUserService.cs" />
+    <Compile Include="Abstract\IVehicleService.cs" />
+    <Compile Include="Concrete\AddressService.cs" />
+    <Compile Include="Concrete\AdminRoleService.cs" />
+    <Compile Include="Concrete\CityService.cs" />
+    <Compile Include="Concrete\AdminService.cs" />
+    <Compile Include="Concrete\CompanyService.cs" />
+    <Compile Include="Concrete\CountryService.cs" />
+    <Compile Include="Concrete\DistrictService.cs" />
+    <Compile Include="Concrete\DriverService.cs" />
+    <Compile Include="Concrete\MessageService.cs" />
+    <Compile Include="Concrete\PayTypeService.cs" />
+    <Compile Include="Concrete\ShipCategoryService.cs" />
+    <Compile Include="Concrete\ShippingService.cs" />
+    <Compile Include="Concrete\UserRoleService.cs" />
+    <Compile Include="Concrete\UserService.cs" />
+    <Compile Include="Concrete\VehicleService.cs" />
+    <Compile Include="IOC\Ninject\DalModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Transivo.Core\Transivo.Core.csproj">
+      <Project>{66f2bf0b-6f29-4c08-a0eb-2d6642edc14e}</Project>
+      <Name>Transivo.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Transivo.DAL\Transivo.DAL.csproj">
+      <Project>{0166bc74-1f75-4c69-9482-d41281d055d2}</Project>
+      <Name>Transivo.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Transivo.Model\Transivo.Model.csproj">
+      <Project>{5f60dcea-4bf2-4a82-bc88-ed7e104ff2a9}</Project>
+      <Name>Transivo.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

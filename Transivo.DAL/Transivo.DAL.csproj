@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0166BC74-1F75-4C69-9482-D41281D055D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Transivo.DAL</RootNamespace>
+    <AssemblyName>Transivo.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IAddressDAL.cs" />
+    <Compile Include="Abstract\IAdminRoleDAL.cs" />
+    <Compile Include="Abstract\ICityDAL.cs" />
+    <Compile Include="Abstract\IAdminDAL.cs" />
+    <Compile Include="Abstract\ICompanyDAL.cs" />
+    <Compile Include="Abstract\ICountryDAL.cs" />
+    <Compile Include="Abstract\IDistrictDAL.cs" />
+    <Compile Include="Abstract\IDriverDAL.cs" />
+    <Compile Include="Abstract\IDriverVehicleDAL.cs" />
+    <Compile Include="Abstract\IMessageDAL.cs" />
+    <Compile Include="Abstract\IPayTypeDAL.cs" />
+    <Compile Include="Abstract\IShippingCategoryDAL.cs" />
+    <Compile Include="Abstract\IShippingDAL.cs" />
+    <Compile Include="Abstract\IUserDAL.cs" />
+    <Compile Include="Abstract\IUserRoleDAL.cs" />
+    <Compile Include="Abstract\IVehicleDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFAddressDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFAdminRoleDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFCityDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFAdminDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFCompanyDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFCountryDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFDistrictDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFDriverDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFDriverVehicleDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFMessageDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFPayTypeDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFShipCategoryDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFShippingDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFUserDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFUserRoleDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\DAL\EFVehicleDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\AddressMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\AdminRoleMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\CityMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\AdminMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\CompanyMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\CountryMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\DistrictMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\DriverMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\MessageMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\PayTypeMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\ShipCategoryMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\ShippingMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\UserMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\UserRoleMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\VehicleMapping.cs" />
+    <Compile Include="Concrete\EntityFramework\TransivoDbContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Transivo.Core\Transivo.Core.csproj">
+      <Project>{66f2bf0b-6f29-4c08-a0eb-2d6642edc14e}</Project>
+      <Name>Transivo.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Transivo.Model\Transivo.Model.csproj">
+      <Project>{5f60dcea-4bf2-4a82-bc88-ed7e104ff2a9}</Project>
+      <Name>Transivo.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

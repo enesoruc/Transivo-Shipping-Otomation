@@ -1,0 +1,211 @@
+﻿@using Transivo.Model.Models
+@using Transivo.UI.MVC.Models
+@model AdminCompanyDetail
+@{
+    Admin admin = Session["admin"] as Admin;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row m-t-25">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="overview-item overview-item--c1">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-account-o"></i>
+                                    </div>
+                                    <div class="text">
+                                        <span>Aktif Çalışan Şoför Sayısı</span>
+                                        @if (Model != null)
+                                        {
+                                            <h2>@Model.AktifSoforler.Count()</h2>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="overview-item overview-item--c2">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-truck"></i>
+                                    </div>
+                                    <div class="text">
+                                        <span>Onay Bekleyen Nakliyeler</span>
+                                        @if (Model != null)
+                                        {
+                                            <h2>@Model.OnayBekleyenNakliyeAdedi</h2>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="overview-item overview-item--c3">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-truck"></i>
+                                    </div>
+                                    <div class="text">
+                                        <span>Teslimatı Bekleyen Nakliyeler</span>
+                                        @if (Model != null)
+                                        {
+                                            <h2>@Model.TeslimatiBeklenenNakliyeler.Count()</h2>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="overview-item overview-item--c4">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="zmdi">₺</i>
+                                    </div>
+                                    <div class="text">
+                                        <span>Elde Edilen Toplam Kazanç</span>
+                                        @if (Model != null)
+                                        {
+                                            <h2>@Model.ToplamKazanc ₺</h2>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                            <div class="au-card-title" style="background-image:url('/assets/img/bg-title-02.jpg');">
+                                <div class="bg-overlay bg-overlay--blue"></div>
+                                <h3>
+                                    <i class="zmdi zmdi-comment-text"></i>Mesajlar
+                                </h3>
+                            </div>
+                            <div class="au-task js-list-load">
+                                <div class="au-task-list js-scrollbar3">
+                                    @if (Model.Mesajlar4 != null)
+                                    {
+                                        foreach (Message item in Model.Mesajlar4)
+                                        {
+                                            if (!item.IsActive)
+                                            {
+                                                <div class="au-task__item au-task__item--warning">
+                                                    <div class="au-task__item-inner">
+                                                        <h5 class="task">
+                                                            <a href="#">@item.User.FirstName @item.User.LastName</a>
+                                                        </h5>
+                                                        <span class="text">@item.Detail</span><br />
+                                                        <span class="time">@item.CreatedDate</span>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="au-task__item au-task__item--danger">
+                                                    <div class="au-task__item-inner">
+                                                        <h5 class="task">
+                                                            <a href="#">@item.User.FirstName @item.User.LastName</a>
+                                                        </h5>
+                                                        <span class="text">@item.Detail</span><br />
+                                                        <span class="time">@item.CreatedDate</span>
+
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+
+                                    @if (Model.Mesajlar != null)
+                                    {
+                                        foreach (Message item in Model.Mesajlar)
+                                        {
+                                            <div class="au-task__item au-task__item--danger js-load-item">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <a href="#">@item.User.FirstName</a>
+                                                    </h5>
+                                                    <span class="text">@item.Detail</span><br />
+                                                    <span class="time">@item.CreatedDate.Date</span>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                                <div class="au-task__footer">
+                                    <button class="au-btn au-btn-load js-load-btn">Daha Fazla Gör</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                            <div class="au-card-title" style="background-image:url('/assets/img/bg-title-01.jpg');">
+                                <div class="bg-overlay bg-overlay--blue"></div>
+                                <h3>
+                                    <i class="zmdi zmdi-truck"></i>Onay Bekleyen Nakliyeler
+                                </h3>
+                            </div>
+                            <div class="au-task js-list-load">
+                                <div class="au-task-list js-scrollbar3">
+                                    @if (Model.OnayBekleyen4Nakliye != null)
+                                    {
+                                        foreach (Shipping item in Model.OnayBekleyen4Nakliye)
+                                        {
+                                            <div class="au-task__item au-task__item--warning">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <a href="/Shipping/ShippingDetail/@item.ID">@item.User.FirstName @item.User.LastName</a>
+                                                    </h5>
+                                                    <span>@item.StartAddress.District.City.Name/@item.StartAddress.District.Name</span> >>>
+                                                    <span>@item.ArrivalAddress.District.City.Name/@item.ArrivalAddress.District.Name</span><br />
+                                                    <span class="time">@item.CreatedDate.ToShortDateString()</span>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    @if (Model.OnayBekleyenNakliyeler != null)
+                                    {
+                                        foreach (Shipping item in Model.OnayBekleyenNakliyeler)
+                                        {
+                                            <div class="au-task__item au-task__item--danger js-load-item">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <a href="#">@item.User.FirstName @item.User.LastName</a>
+                                                    </h5>
+                                                    <span class="time">@item.Km KM</span><br />
+                                                    <span class="time">@item.CreatedDate.ToShortDateString()</span>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                                @if (Model.OnayBekleyenNakliyeler != null)
+                                {
+                                    <div class="au-task__footer">
+                                        <button class="au-btn au-btn-load js-load-btn">Daha Fazla Gör</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT-->
+    <!-- END PAGE CONTAINER-->
+</div>
+

@@ -1,0 +1,12 @@
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\bin\Debug\Transivo.Core.dll.config
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\bin\Debug\Transivo.Core.dll
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\bin\Debug\Transivo.Core.pdb
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\bin\Debug\EntityFramework.dll
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\bin\Debug\EntityFramework.xml
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\obj\Debug\Transivo.Core.csproj.CoreCompileInputs.cache
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\obj\Debug\Transivo.Core.csproj.CopyComplete
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\obj\Debug\Transivo.Core.dll
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\obj\Debug\Transivo.Core.pdb
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Core\obj\Debug\Transivo.Core.csprojAssemblyReference.cache

@@ -1,0 +1,59 @@
+﻿@using Transivo.Model.Models
+@model Driver
+@{
+    ViewBag.Title = "DriverDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section style=" height:120px"></section>
+<!--== Login Page Content Start ==-->
+<section id="lgoin-page-wrap" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 m-auto">
+                <div class="login-page-content">
+                    <div style="text-align:center;width:500px;background-color:orange;border-radius:10px">
+                        <br />
+                        <h2>Şoför Detay</h2>
+                        <hr>
+                        <table class="table table-striped">
+                            <tr>
+                                <th scope="row">Adı</th>
+                                <td>@Model.FirstName</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Soyadı</th>
+                                <td>@Model.Lastname</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">TC Kimlik No</th>
+                                <td>@Model.TC</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Doğum Tarihi</th>
+                                <td>@Model.BirthDate.ToShortDateString()</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Doğum Yeri</th>
+                                <td>@Model.BirthPlace</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Telefon Numarası</th>
+                                <td>@Model.Phone</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email Adresi</th>
+                                <td>@Model.EMail</td>
+                            </tr>
+                        </table>
+                        <br />
+                        <div class="form-group">
+                            @Html.ActionLink("Geri Dön", "ListDrivers", null, new { @class = "btn btn-primary" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--== Login Page Content End ==-->

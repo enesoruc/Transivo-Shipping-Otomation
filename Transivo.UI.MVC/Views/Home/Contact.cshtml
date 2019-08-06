@@ -1,0 +1,75 @@
+﻿@using Transivo.UI.MVC.Models
+@model GuestUserVM
+<!--== Page Title Area Start ==-->
+<section id="page-title-area" class="section-padding overlay" style="background-image:url(../../assets/img/page-title.jpg)">
+    <div class="container">
+        <div class="row">
+            <!-- Page Title Start -->
+            <div class="col-lg-12">
+                <div class="section-title  text-center">
+                    <h2>BİZİMLE İLETİŞİME GEÇİN</h2>
+
+                </div>
+            </div>
+            <!-- Page Title End -->
+        </div>
+    </div>
+</section>
+<!--== Page Title Area End ==-->
+<!--== Contact Page Area Start ==-->
+<div class="contact-page-wrao section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 m-auto">
+                <div class="contact-form">
+                    <form method="post">
+                        <span>*'lı Alanların Doldurulması Zorunludur</span>
+                        <div class="row" style="align-content:center">
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="name-input" id="ad">
+                                    @Html.TextBoxFor(a => a.FirstName, new { type = "text", placeholder = "Ad*", @class = "form-control" })
+                                    <div class="col-md-10">
+                                        @Html.ValidationMessageFor(a => a.FirstName, "", new { type="text", @class = "text-danger" })
+                                    </div>
+                                </div><br />
+                                <div class="name-input" id="soyad">
+                                    @Html.TextBoxFor(a => a.LastName, new { type = "text", placeholder = "Soyad*", @class = "form-control" })
+                                    <div class="col-md-10">
+                                        @Html.ValidationMessageFor(a => a.LastName, "", new { type="text", @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="website-input" id="email">
+                                    @Html.TextBoxFor(a => a.Email, new { type = "email", placeholder = "EMail*", @class = "form-control" })
+                                    <div class="col-md-10">
+                                        @Html.ValidationMessageFor(a => a.Email, "", new {type="text", @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message-input" id="adres">
+                            @Html.TextAreaFor(a => a.Message, new { type = "textarea", placeholder = "Mesaj*", @class = "form-control" })
+                            <div class="col-md-10">
+                                @Html.ValidationMessageFor(a => a.Message, "", new { type="text" ,@class = "text-danger" })
+                            </div>
+                        </div>
+                        @if (@ViewBag.result != null)
+                        {
+                            <span>@ViewBag.result</span>
+                        }
+
+                        <div class="input-submit">
+                            <button type="submit" id="btnSend">Gönder</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--== Contact Page Area End ==-->
+<!--== Map Area Start ==-->
+<div class="maparea">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.6334326150113!2d28.868890015105045!3d40.98950697930264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabca50547e5f5%3A0xab73420ce892f621!2sBilge+Adam+Akademi+Bak%C4%B1rk%C3%B6y+%C5%9Eubesi!5e0!3m2!1str!2str!4v1562567358646!5m2!1str!2str" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+<!--== Map Area End ==-->

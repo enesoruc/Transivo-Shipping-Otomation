@@ -1,0 +1,32 @@
+﻿@using Transivo.Model.Models
+@model Message
+<form method="get">
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="name-input">
+                <input type="text" value="@Model.User.FirstName" readonly>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="name-input">
+                <input type="text" value="@Model.User.LastName" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="email-input">
+                <input type="email" value="@Model.User.EMail" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="message-input">
+        <textarea name="message" cols="30" rows="5" readonly>@Model.Detail</textarea>
+    </div>
+
+    <div class="input-submit">
+
+        <button type="submit">GÖNDER</button>
+        <button type="reset">SİL</button>
+    </div>
+</form>

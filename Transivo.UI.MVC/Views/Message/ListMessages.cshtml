@@ -1,0 +1,194 @@
+﻿@using Transivo.Model.Models
+@model List<Message>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-content">
+    
+    <div class="section__content section__content--p30">
+        <section style="width:auto;text-align:center">
+            <form method="post">
+                <div class="btn-group">
+                    <button type="submit" value="1" name="value" class="btn btn-primary">Tüm Zamanlar</button>
+                    <button type="submit" value="2" name="value" class="btn btn-primary">Bu Ay</button>
+                    <button type="submit" value="3" name="value" class="btn btn-primary">Bu Hafta</button>
+                    <button type="submit" value="4" name="value" class="btn btn-primary">Bu Gün</button>
+                </div>
+            </form>
+        </section>
+        <br />
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <!-- USER DATA-->
+                    <div class="user-data m-b-30" style="border-radius:10px">
+                        <h3 class="title-3 m-b-30">
+                            <i class="zmdi zmdi-comment-text"></i>Mesajlar
+                        </h3>
+                        <div class="table-responsive table-data">
+                            <table class="table table-hover" id="messageTable">
+                                <tbody>
+                                    @foreach (Message item in Model)
+                                    {
+                                        <tr class="btnDetail">
+                                            <td class="btnDetail">
+                                                <div class="table-data__info btnDetail" data-messageID="@item.ID">
+                                                    <h6 class="btnDetail" style="color:black" data-messageID="@item.ID">@item.User.FirstName @item.User.LastName</h6>
+                                                    <span style="font-size:15px">
+                                                        @item.User.EMail
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        @*<div class="table-responsive table-data">
+                            <table class="table table-hover" id="messageTable">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="table-data__info btnDetail" data-messageID="">
+                                                <h6 style="color:black" data-messageID="">isim soyisim</h6>
+                                                <span>
+                                                    email
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>*@
+                    </div>
+                    <!-- END USER DATA-->
+                </div>
+                <div class="col-lg-8">
+                    <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                        <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
+                            <div class="bg-overlay bg-overlay--blue"></div>
+                            <h3>
+                                <i class="zmdi zmdi-comment-text"></i>Mesaj Detayı
+                            </h3>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Gönderen :</td>
+                                <td><h5 class="task" id="nameSurname"></h5></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Gönderi Tarihi :</td>
+                                <td><span class="time" id="createdDate"></span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Mesaj Detayı :</td>
+                                <td><span class="text" id="detail"></span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(".btnDetail").click(function () {
+            var msgID = $(this).attr("data-messageID");
+
+            $.ajax({
+                url: "/Message/GetByID/" + msgID,
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    if (data != null) {
+                        $("#nameSurname").html(data.NameSurname);
+                        $("#detail").html(data.Detail);
+                        $("#createdDate").html(data.CreatedDate)
+                    }
+                    else {
+                        alert("Mesaj bulunamadı");
+                    }
+                }
+            });
+
+        });
+
+            //$("#dropdownList").change(function () {
+            //    var id = $(this).attr("data-ddlID");
+            //    $.ajax({
+            //        url: "/Message/GetBySelectedDate" + id,
+            //        type: "GET",
+            //        dataType: "json",
+            //        contentType: "application/json;charset=utf-8",
+            //        success: function (data) {
+            //            if (data != null) {
+
+            //            }
+            //        }
+            //    });
+            //});
+
+
+            //$("#dropdownList").change(function () {
+            //    var ddlID = $("#dropdownList").val();
+            //    $.ajax({
+            //        url: "/Message/GetBySelectedDate/" + ddlID,
+            //        type: "GET",
+            //        dataType: "json",
+            //        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            //        success: function (resp) {
+            //            if (resp != null) {
+
+            //            } else {
+            //                alert("veri gelmedi");
+            //            }
+            //        },
+            //        error: function (err) {
+            //            alert("Bir Hata Oluştu!");
+            //            console.log(err);
+            //        }
+            //    });
+            //});
+
+            // $("#dropdownList").change(function () {
+            //    var ddlID = $("#dropdownList").val();
+            //    $.ajax({
+            //        url: "/Message/GetBySelectedDate/" + ddlID,
+            //        type: "GET",
+            //        dataType: "json",
+            //        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            //        success: function (resp) {
+            //            if (resp != null) {
+            //                $("#messageTable").empty();
+            //                $("#messageTable").append('<tr>İl</tr>');
+            //                $.each(resp, function (key, value) {
+            //                    //$("#messageTable").append('<option value=' + value.Value + '>' + value.Text + '</option>');
+            //                    $("#messageTable").append(' <tr><td><div class="table-data__info btnDetail" data-messageID="' + value.Value + '"><h6 style="color:black">' + value.Text + '</h6><span>' + value. + '</span></div></td></tr>');
+            //                });
+            //            } else {
+            //                alert("veri gelmedi");
+            //            }
+            //        },
+            //        error: function (err) {
+            //            alert("Bir Hata Oluştu!");
+            //            console.log(err);
+            //        }
+            //    });
+            //});
+    </script>
+}
+

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "LogOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<body onLoad="setTimeout('bekle()', 3000)">
+    
+    <!--== 404 Page Page Content Start ==-->
+    <section id="page-404-wrap" class="section-padding overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="page-404-content">                        
+                        <h4>YÖNLENDİRİLİYORSUNUZ</h4>
+                        <h4>LÜTFEN BEKLEYİNİZ...</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--== 404 Page Page Content End ==-->
+</body>
+
+@section scripts{
+    <script>
+        function bekle() {
+            window.location.href = "/UserAccount/Login";
+        }
+    </script>
+}
+
+
+

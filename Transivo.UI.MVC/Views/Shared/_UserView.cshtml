@@ -1,0 +1,26 @@
+﻿@using Transivo.Model.Models
+@{ 
+    User user = Session["user"] as User;
+}
+ <!--== Main Menu Start ==-->
+<div class="col-lg-8 d-none d-xl-block">
+    <nav class="mainmenu alignright">
+        <ul>
+            <li @*class="active"*@>
+                <a href="http://localhost:50137/">ANASAYFA</a>
+            </li>
+            <li><a href="/Home/Companies">FİRMALAR</a></li>
+            <li><a href="/Home/Contact">İLETİŞİM</a></li>
+            @*<li><a href="#"></a></li>*@
+            <li>
+                <a href="#">@user.FirstName @user.LastName</a>
+                <ul>
+                    <li><a href="/UserAccount/Login">HESAP AYARLARI</a></li>
+                    <li><a href="/User/Shipping">SİPARİŞLERİM</a></li>
+                    <li><a href="/UserAccount/LogOut">GüVENLİ ÇIKIŞ</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!--== Main Menu End ==-->

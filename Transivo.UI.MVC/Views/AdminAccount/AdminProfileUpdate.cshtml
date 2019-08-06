@@ -1,0 +1,50 @@
+﻿@using Transivo.Model.Models
+@model Admin
+@{
+    ViewBag.Title = "AdminProfileUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">Hesap Bilgileri Güncelleme Formu</div>
+                        <div class="card-body card-block">
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        @Html.TextBoxFor(a => a.Username, new { type = "text", placeholder = "Kullanıcı Adı", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                        @Html.TextBoxFor(a => a.EMail, new { type = "email", placeholder = "E-mail", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-asterisk"></i>
+                                        </div>
+                                        @Html.TextBoxFor(a => a.Password, new { type = "password", placeholder = "Yeni Şifreniz", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-actions form-group">
+                                    <button type="submit" class="btn btn-success btn-sm">Kaydet</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

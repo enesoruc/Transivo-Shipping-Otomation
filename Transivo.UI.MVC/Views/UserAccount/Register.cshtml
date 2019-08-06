@@ -1,0 +1,200 @@
+﻿@using Transivo.Model.Models
+@using Transivo.UI.MVC.Models
+@using Transivo.UI.MVC.Controllers
+@model RegisterUserViewModel
+
+@{
+    List<Country> countries = ViewBag.Countries;
+
+}
+
+<section style=" background-color:blue;height:120px"></section>
+<!--== Login Page Content Start ==-->
+<section id="lgoin-page-wrap" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 m-auto">
+                <div class="login-page-content">
+                    <div class="login-form">
+                        <h3>Üye Kayıt Formu</h3>
+                        <span>'*' lı Alanların Doldurulması Zorunludur</span>
+                        <form class="login_form" method="post">
+                            @Html.AntiForgeryToken()
+                            <div class="name">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        @Html.TextBoxFor(a => a.FirstName, new { type = "text", placeholder = "Ad*", @class = "form-control" })
+                                        <div class="col-md-10">
+                                            @Html.ValidationMessageFor(a => a.FirstName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.TextBoxFor(a => a.LastName, new { type = "text", placeholder = "Soyad*", @class = "form-control" })
+                                        <div class="col-md-10">
+                                            @Html.ValidationMessageFor(a => a.LastName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(a => a.BirthDate, new { type = "date", placeholder = "Birth Date", @class = "form-control" })
+                                        <div class="col-md-10">
+                                            @Html.ValidationMessageFor(a => a.BirthDate, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(a => a.Phone, new { type = "text", placeholder = "(0555)-555-55-55*", @class = "form-control" })
+                                        <div class="col-md-10">
+                                            @Html.ValidationMessageFor(a => a.Phone, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="CountryID" id="country">
+                                        <option>Bir Ülke Seçiniz</option>
+                                        @if (countries != null)
+                                        {
+                                            for (int i = 0; i < countries.Count; i++)
+                                            {
+                                                <option value="@countries[i].ID">@countries[i].Name</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="CityID" id="cities" disabled>
+                                        <option>Bir İl Seçiniz</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="DistrictID" id="districts" disabled>
+                                        <option>Bir İlçe Seçiniz</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="username">
+                                @Html.TextBoxFor(a => a.AddressName, new { type = "text", placeholder = "Adres Başlığı*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.AddressName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="username">
+                                @Html.TextBoxFor(a => a.AddressDetail, new { type = "text", placeholder = "Adres Detayı*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.AddressDetail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="username">
+                                @Html.TextBoxFor(a => a.EMail, new { type = "email", placeholder = "EMail*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.EMail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="username">
+                                @Html.TextBoxFor(a => a.UserName, new { type = "text", placeholder = "Kullanıcı adı*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.UserName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="password">
+                                @Html.TextBoxFor(a => a.Password, new { type = "password", id = "password", placeholder = "Şifre*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="password">
+                                @Html.TextBoxFor(a => a.RePassword, new { type = "password", id = "rePassword", placeholder = "Şifre tekrarı*", @class = "form-control" })
+                                <div class="col-md-10">
+                                    @Html.ValidationMessageFor(a => a.RePassword, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            @if (ViewBag.Message != null)
+                            {
+                                <span>@ViewBag.Message</span>
+                                <script>
+                                    alert("@ViewBag.Message");
+                                </script>
+                            }
+
+                            <div class="log-btn">
+                                <button type="submit" value="submit" id="btnSubmit"><i class="fa fa-check-square"></i> ONAYLA</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--== Login Page Content End ==-->
+
+
+
+@section scripts{
+
+    <script type="text/javascript">
+        $("#cities").prop("disabled", true);
+        $("#districts").prop("disabled", true);
+
+        $("#country").change(function () {
+            var countryID = $("#country").val();
+            $("#cities").append('<option>Bir İl Seçin</option>');
+            $("#districts").append('<option>Bir İlçe Seçin</option>');
+
+            $.ajax({
+                url: "/Location/GetCitiesByCountry/" + countryID,
+                type: "POST",
+                data: { "id": countryID },
+                dataType: "json",
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                success: function (resp) {
+                    if (resp != null) {
+                        $("#cities").prop("disabled", false);
+                        $("#cities").empty();
+                        $("#cities").append('<option>Bir İl Seçin</option>');
+                        $.each(resp, function (key, value) {
+                            $("#cities").append('<option value=' + value.Value + '>' + value.Text + '</option>');
+                        });
+                    } else {
+                        alert("veri gelmedi");
+                    }
+                },
+                error: function (err) {
+                    alert("ne hayatmış bee!");
+                    console.log(err);
+                }
+            });
+        });
+
+        $("#cities").change(function () {
+            var cityID = $("#cities").val();
+            $("#districts").append('<option>Bir İlçe Seçin</option>');
+            $("#districts").empty();
+
+            $.ajax({
+                url: "/Location/GetDistrictByCity/" + cityID,
+                type: "POST",
+                data: { "id": cityID },
+                dataType: "json",
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                success: function (resp) {
+                    if (resp != null) {
+                        $("#districts").prop("disabled", false);
+                        $("#districts").empty();
+                        $("#districts").append('<option>Bir İl Seçin</option>');
+                        $.each(resp, function (key, value) {
+                            $("#districts").append('<option value=' + value.Value + '>' + value.Text + '</option>');
+                        });
+                    } else {
+                        alert("veri gelmedi");
+                    }
+                },
+                error: function (err) {
+                    alert("ne hayatmış bee!");
+                    console.log(err);
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,98 @@
+﻿@using Transivo.Model.Models
+@model List<Shipping>
+@{
+    ViewBag.Title = "Shipping";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section style="height:223px;background-image:url(../../assets/img/car/car-2.jpg)"></section>
+<!--== Car List Area Start ==-->
+<section id="car-list-area" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar Area Start -->
+            <div class="col-lg-4">
+                <div class="faq-details-content">
+                    <!-- Single FAQ Subject  Start -->
+                    <div class="single-faq-sub">
+                        <div class="single-faq-sub-content">
+                            <div id="accordion">
+                                <!-- Single FAQ Start -->
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <span>Nakliyeler</span>
+                                                <i class="fa fa-angle-down"></i>
+                                                <i class="fa fa-angle-up"></i>
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <form method="post">
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <button type="submit" name="value" value="1" class="btn bookcar-btn">Nakliye Taleplerim</button>
+                                                <button type="submit" name="value" value="2" class="btn bookcar-btn">Taşıma Durumundaki Nakliyelerim</button>
+                                                <button type="submit" name="value" value="3" class="btn bookcar-btn">Geçmiş Nakliyelerim</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- Single FAQ End -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single FAQ Subject End -->
+                </div>
+            </div>
+            <!-- Sidebar Area End -->
+            <!-- Car List Content Start -->
+            <div class="col-lg-8">
+                <div class="car-list-content m-t-50">
+                    <!-- Single Car Start -->
+                    @if (Model != null)
+                    {
+                        foreach (Shipping item in Model)
+                        {
+                            <div class="single-car-wrap">
+                                <div class="row">
+                                    <!-- Single Car Thumbnail -->
+                                    <div class="col-lg-1">
+                                        <div class="car-list-thumb car-thumb-1"></div>
+                                    </div>
+                                    <!-- Single Car Thumbnail -->
+                                    <!-- Single Car Info -->
+                                    <div class="col-lg-7">
+                                        <div class="display-table">
+                                            <div class="display-table-cell">
+                                                <div class="car-list-info">
+                                                    <h6>Taşıyıcı Firma : <a style="color:orange" href="@Url.Action("CompanyDetail","Home",new {item.Company.ID })">@item.Company.CompanyName</a></h6>
+                                                    <h5>Tutarı : @item.Price ₺</h5>
+                                                    @if (item.Vehicle != null)
+                                                    {
+                                                        <h6>Araç Plaka : @item.Vehicle.Plate</h6>
+                                                    }
+
+                                                    <p>Araç Şuan : İzmir/Çiğli'de</p>
+                                                    <p>Başlangıç Adresi : @item.StartAddress.District.City.Name/ @item.StartAddress.District.Name</p>
+                                                    <p>Varış Adresi : @item.ArrivalAddress.District.City.Name/ @item.ArrivalAddress.District.Name</p>
+                                                    @*<a href="#" class="rent-btn">Değerlendir / Yorum Yap</a>*@
+                                                    @Html.ActionLink("Yorum Yap", "ShippingComment", "User", new { item.ID }, new { @class = "rent-btn" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Car info -->
+                                </div>
+                            </div>
+                        }
+                    }
+                    <!-- Single Car End -->
+                </div>
+            </div>
+            <!-- Car List Content End -->
+        </div>
+    </div>
+</section>
+<!--== Car List Area End ==-->

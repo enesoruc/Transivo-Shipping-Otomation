@@ -1,0 +1,98 @@
+﻿@using Transivo.Model.Models
+@model Driver
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!--== Login Page Content Start ==-->
+<section style=" height:120px"></section>
+<section id="lgoin-page-wrap" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 m-auto">
+                <div class="login-page-content">
+                    <div class="signup-form" style="text-align:center;width:500px">
+                        <form method="post" style="border-radius:15px">
+                            @Html.AntiForgeryToken()
+                            <h2>Sürücü Güncelleme</h2>
+                            <p>Lütfen Tüm Alanları Doldurunuz</p>
+                            <hr>
+                            <table>
+                                <tr>
+                                    <td>İsim</td>
+                                    <td>Soyisim</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class=" col-md-12 ">
+                                            @Html.TextBoxFor(a => a.FirstName, new { type = "text", placeholder = "İsim*", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.Lastname, new { type = "text", placeholder = "Soyİsim*", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>TC Kimlik Numarası</td>
+                                    <td>Doğum Yılı</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.TC, new { type = "text", placeholder = "TC Kimlik Numarası*", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.BirthDate, new { type = "date", placeholder = "Doğum Yılı", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Doğum Yeri(İl)</td>
+                                    <td>İletişim Numarası</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.BirthPlace, new { type = "text", placeholder = "Doğum Yeri(İl)*", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.Phone, new { type = "text", placeholder = "İletişim Numarası*", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Email</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.EMail, new { type = "email", placeholder = "EMail*", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="height:20px">
+                                @if (ViewBag.result != null)
+                                {
+                                    <span>@ViewBag.result</span>
+                                }
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--== Login Page Content End ==-->

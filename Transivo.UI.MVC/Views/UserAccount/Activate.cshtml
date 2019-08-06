@@ -1,0 +1,19 @@
+﻿<section class="solid_banner_area">
+    <div class="container">
+        <div class="solid_banner_inner">
+            @if (ViewBag.Result.ToString().StartsWith("Ü"))
+            {
+                <script>
+                    window.location.href = "/UserAccount/Login";
+                    alert("Üyeliğiniz aktifleştirilmiştir. Artık gönül rahatlığıyla giriş yapabilirsiniz :)");
+                </script>
+            }
+            else
+            {
+                <script>
+                    alert("Böyle bir kullanıcı bulunamadı. Lütfen kayıt olunuz!");
+                </script>
+            }
+        </div>
+    </div>
+</section>

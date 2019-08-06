@@ -1,0 +1,126 @@
+﻿@using Transivo.UI.MVC.Models
+@using Transivo.Model.Models
+@model CompanyViewModel
+@{
+    List<Company> companies = ViewBag.Companies;
+
+
+}
+<!--== Car List Area Start ==-->
+<section id="car-list-area" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Car List Content Start -->
+            <div class="col-lg-8">
+                <div class="car-details-content">
+                    <br />
+                    <h2>@Model.CompanyName <span class="price">Km Başına Ücret: <b>@Model.Freight ₺</b></span></h2>
+                    <div class="car-details-info">
+                        <h4>Hakkımızda</h4>
+                        <p>@Model.About</p>
+                        <div class="review-area">
+                            <div class="review-form">
+                                <form method="post" action="/Home/CompanyDetail/@Model.ID">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="name-input">
+                                                <input type="text" placeholder="İsim" name="name">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="name-input">
+                                                <input type="text" placeholder="Soyisim" name="surname">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="email-input">
+                                                <input type="email" placeholder="E-mail" name="email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="message-input">
+                                        <textarea name="message" cols="30" rows="5" placeholder="Mesajınız!"></textarea>
+                                    </div>
+
+                                    <div class="input-submit">
+
+                                        <button type="submit">GÖNDER</button>
+                                        <button type="reset">SİL</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Car List Content End -->
+            <!-- Sidebar Area Start -->
+
+            <div class="col-lg-4">
+                <div class="sidebar-content-wrap m-t-50">
+                    <!-- Single Sidebar Start -->
+                    <br />
+                    <div class="single-sidebar">
+                        <h3>İLETİŞİM</h3>
+
+                        <div class="sidebar-body">
+                            <p><i class="fa fa-mobile"></i> @Model.Phone</p>
+                            <p><i class="fa fa-clock-o"></i> Pzt - Cum 8.00 - 18.00</p>
+                        </div>
+                    </div>
+                    <!-- Single Sidebar End -->
+                    <!-- Single Sidebar Start -->
+                    <div class="single-sidebar">
+                        <h3>DİĞER FİRMALAR</h3>
+
+                        <div class="sidebar-body">
+                            <ul class="recent-tips">
+
+                                @foreach (Company item in companies)
+                                {
+                                    <li class="single-recent-tips">
+                                        <div class="recent-tip-thum">
+                                            <a href="/Home/CompanyDetail/@item.ID"><img src="@item.LogoPath" style="width:200px;height:150px;"></a>
+                                        </div>
+                                        <div class="recent-tip-body">
+                                            <h4><a href="/Home/CompanyDetail/@item.ID">@item.CompanyName</a></h4>
+                                            <span class="date">@item.Freight</span>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Single Sidebar End -->
+                    <!-- Single Sidebar Start -->
+                    <div class="single-sidebar">
+                        <h3>Sosyal Ağlar</h3>
+
+                        <div class="sidebar-body">
+                            <div class="social-icons text-center">
+                                <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="#" target="_blank"><i class="fa fa-behance"></i></a>
+                                <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                <a href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Sidebar End -->
+                </div>
+            </div>
+            <!-- Sidebar Area End -->
+        </div>
+    </div>
+</section>
+<!--== Car List Area End ==-->
+
+@*@section scripts{
+   @if (ViewBag.Message == "Mesajınız başarı ile gönderildi.")
+   {
+    <script>window.alert(@ViewBag.Message)</script>
+    }
+
+}*@

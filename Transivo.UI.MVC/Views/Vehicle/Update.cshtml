@@ -1,0 +1,277 @@
+﻿@using Transivo.Model.Models
+@model Vehicle
+@{
+                /**/
+
+                Layout = "~/Views/Shared/_AdminLayout.cshtml";
+                List<Driver> drivers = ViewBag.drivers as List<Driver>;
+}
+
+<section style=" height:120px"></section>
+<!--== Login Page Content Start ==-->
+<section id="lgoin-page-wrap" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 m-auto">
+                <div class="login-page-content">
+                    <div class="signup-form" style="text-align:center;width:500px">
+                        <form method="post" style="border-radius:15px">
+                            @Html.AntiForgeryToken()
+                            <h2>Araç Kayıt</h2>
+                            <p>Lütfen Tüm Alanları Doldurunuz</p>
+                            <hr>
+                            <table>
+                                <tr>
+                                    <td>Araç Plakası</td>
+                                    <td>Aracın Rengi</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class=" col-md-12 ">
+                                            @Html.TextBoxFor(a => a.Plate, new { type = "text", @class = "form-control", required = "required" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.Color, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>İlk Kayıt Tarihi</td>
+                                    <td>Kayıt Tarihi</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.RegistrationFirstDate, new { type = "date", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.RegistrationDate, new { type = "date", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kayıt Numarası</td>
+                                    <td>Marka</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.RegistrationNo, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.Brand, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Araç Tipi</td>
+                                    <td>Ticari Adı</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.Type, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.CommercialName, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Model Yılı</td>
+                                    <td>Araç Sınıfı</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.ModelYear, new { type = "date", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.CarClass, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Araç Cinsi</td>
+                                    <td>Motor Numarası</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.Genus, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.MotorNo, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Şasi Numarası</td>
+                                    <td>Net Ağırlık</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.ChasisNo, new { type = "text", @class = "form-control" })
+                                        </div>
+
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.WeightNet, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kantar Ağırlığı</td>
+                                    <td>Koltuk Sayısı</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.WeightWeigher, new { type = "text", @class = "form-control" })
+                                        </div>
+
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.SeatsOfNumber, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Silindir Hacmi</td>
+                                    <td>Yakıt Tipi</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.CylinderVolume, new { type = "text", @class = "form-control" })
+                                        </div>
+
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.FuelType, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Amacı</td>
+                                    <td>Güç Ağırlık Oranı</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.PurposeOf, new { type = "text", @class = "form-control" })
+                                        </div>
+
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.PowerToWeightRatio, new { type = "text", @class = "form-control" })
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Maksimum Ağırlığı</td>
+                                    <td>Noter Adı ve Soyadı</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.MaxLoadWeight, new { type = "text", @class = "form-control" })
+                                        </div>
+
+
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.NotaryName, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Doküman Numarası</td>
+                                    <td>Noter Satış Numarası</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.DocumentSerialNo, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.NotarySalesNo, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Motor Gücü</td>
+                                    <td>Noter Satış Tarihi</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.MotorPower, new { type = "text", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(a => a.NoterySalesDate, new { type = "date", @class = "form-control" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Şoför Seçiniz</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="form-group">
+                                            <select class="form-control" name="driverID">
+                                                @if (drivers != null)
+                                                {
+                                                    foreach (Driver item in drivers)
+                                                    {
+                                                        <option value="@item.ID">@item.FirstName</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="height:20px">
+                                @if (ViewBag.result != null)
+                                {
+                                    <span>@ViewBag.result</span>
+                                }
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="btnSave" class="btn btn-primary btn-lg">Kaydet</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--== Login Page Content End ==-->

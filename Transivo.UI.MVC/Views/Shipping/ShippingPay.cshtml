@@ -1,0 +1,61 @@
+﻿@using Transivo.Model.Models
+@using Transivo.UI.MVC.Models
+@model ShippingViewModel
+@{
+    ViewBag.Title = "ShippingPay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="lgoin-page-wrap" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 m-auto">
+                <div class="login-page-content">
+                    <div class="login-form">
+                        <h3>Nakliye Ödeme</h3>
+                        <span>İlgili Alanları Seçerek Talebi Tamamlayabilirsiniz</span>
+                        <form class="login_form" method="post">
+                            @Html.AntiForgeryToken()
+                            <div class="name">
+                                <div class="form-group">
+                                    <select class="form-control" name="categoryID">
+                                        <option>Bir Nakliye Kategorisi Seçiniz</option>
+                                        @if (Model.shipCategories != null)
+                                        {
+                                            foreach (ShipCategory item in Model.shipCategories)
+                                            {
+                                                <option value="@item.ID">@item.Name</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="payTypeID">
+                                        <option>Ödeme Tipi Seçiniz</option>
+                                        @if (Model.PayTypes != null)
+                                        {
+                                            foreach (PayType item in Model.PayTypes)
+                                            {
+                                                <option value="@item.ID">@item.TypeName</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            @if (ViewBag.Message != null)
+                            {
+                                <script>
+                                    alert("@ViewBag.Message");
+                                </script>
+                            }
+                            <div class="log-btn">
+                                <button type="submit"><i class="fa fa-check-square"></i>Siparişi Onayla</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--== Login Page Content End ==-->

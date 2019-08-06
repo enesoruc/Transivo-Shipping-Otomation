@@ -1,0 +1,47 @@
+﻿@using Transivo.Model.Models
+@using Transivo.UI.MVC.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Company> AllCompanies = ViewBag.CompaniesFreights;
+}
+<!--== About Page Content Start ==-->
+<section style="height:100px"></section>
+<section id="about-area" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Section Title Start -->
+            <div class="col-lg-12">
+                <div class="section-title  text-center">
+                    <h2>Kargonuzu Taşımaya Hazır Firmalar</h2>
+                    <span class="title-line"><i class="fa fa-car"></i></span>
+                    <p>Dilediğiniz Firma İle Nakliye İşlemine Devam Edebilirsiniz...</p>
+                </div>
+            </div>
+            <!-- Section Title End -->
+        </div>
+        <!-- About Fretutes Start -->
+        <div class="about-feature-area">
+            <div class="row">
+                <!-- Single Fretutes Start -->
+                @foreach (Company item in AllCompanies)
+                {
+                    <div class="col-lg-4" style="margin-bottom:10px">
+                        <div class="about-feature-item active divID" value="@item.ID" style="border-radius:10px">
+                            <i class="fa fa-truck"></i>
+                            <h3>@item.CompanyName</h3>
+                            <label class="kmFreight" value="@item.Freight">Ortalama Alınacak Ücret : @item.Freight</label>
+                            <br />
+                            <label class="totalFreight" style="color:red"></label>
+                            <br />
+                            @Html.ActionLink("Kargola", "ShippingPay", "Shipping", new { id = item.ID}, new { @class = "rent-btn" })
+                        </div>
+                    </div>
+                }
+                <!-- Single Fretutes End -->
+            </div>
+        </div>
+        <!-- About Fretutes End -->
+    </div>
+</section>
+<!--== About Page Content End ==-->

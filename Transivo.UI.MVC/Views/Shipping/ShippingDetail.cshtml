@@ -1,0 +1,124 @@
+﻿@using Transivo.Model.Models
+@model Shipping
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    List<Vehicle> vehicles = ViewBag.vehicles;
+}
+
+<section style=" height:120px"></section>
+<!--== Login Page Content Start ==-->
+<section id="lgoin-page-wrap" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 m-auto">
+                <div class="login-page-content">
+                    <div style="text-align:center;width:500px;background-color:orange;border-radius:10px">
+                        <br />
+                        <h2>Şoför Detay</h2>
+                        <hr>
+                        <table class="table table-striped">
+                            <tr>
+                                <th scope="row">Talep Sahibi</th>
+                                <td>@Model.User.FirstName @Model.User.LastName</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Başlangıç Adresi</th>
+                                <td>@Model.StartAddress.District.City.Name/@Model.StartAddress.District.Name</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Varış Adresi</th>
+                                <td>@Model.ArrivalAddress.District.City.Name/@Model.ArrivalAddress.District.Name</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Nakliye Tarihi</th>
+                                <td>@Model.RequiredDate.ToShortDateString()</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tutarı</th>
+                                <td>@Model.Price ₺</td>
+                            </tr>
+                            <tr>
+                                <td>Taşıyacak Araç</td>
+                                <td>
+                                    <select class="form-control" id="vehicle" name="driverID">
+                                        @if (vehicles != null)
+                                        {
+                                            foreach (Vehicle item in vehicles)
+                                            {
+                                                <option data-vehicle="@item.ID" value="@item.ID">@item.Plate</option>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <option>Boşta Araç Bulunmamakta</option>
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <div class="form-group">
+                            <button class="btnOK btn btn-info" data-shipID="@Model.ID">Onayla</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--== Login Page Content End ==-->
+@*@section scripts
+    {
+        <script>
+            $(".btnOK").click(function () {
+                var shipID = $(this).attr("data-shipID");
+                var vehicleID = $("#vehicle").attr()
+                $.ajax({
+                    url: "/Shipping/Update/" + shipID + vehicleID,
+                    type: "GET",
+                    success: function (response) {
+                        if (response == "ok") {
+                            alert("Talep Onaylandı ");
+                            window.location.reload();
+                        }
+                        else {
+                            alert("HATA");
+                        }
+                    }
+                });
+            });
+        </script>
+    }*@
+@section scripts{
+    <script>
+        $(".btnOK").click(function () {
+
+            var shipID = $(this).attr("data-shipID");
+
+            var ship = {
+                "shipID": shipID,
+                "vehicleID": $("#vehicle").val(),
+            };
+
+            $.ajax({
+                url: "/Shipping/Update",
+                type: "GET",
+                data: ship,
+                success: function (resp) {
+                    if (resp == "ok") {
+                        alert("Talep Başarıyla Onaylandı");
+                        window.location.reload();
+                    }
+                    else {
+                        alert("Kaydetme işlemi başarısız");
+                        console.log(resp);
+                    }
+                },
+                error: function (err) {
+                    alert("İstek başarısız");
+                    console.log(err);
+                }
+            });
+        });
+    </script>
+}

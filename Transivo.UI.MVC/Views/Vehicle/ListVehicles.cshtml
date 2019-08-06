@@ -1,0 +1,67 @@
+﻿@using Transivo.Model.Models
+@model List<Vehicle>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (Vehicle item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mx-auto d-block">
+                                    <img class="rounded-circle mx-auto d-block" src="~/assets/img/driver/index.jpg" style="width:100px;height:100px">
+                                    <h5 class="text-sm-center mt-2 mb-1">@item.Brand</h5>
+                                    <div class="location text-sm-center">
+                                        <i class="fa fa-truck"></i> @item.Plate
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="table-data-feature">
+                                    <button onclick="location.href='@Url.Action("Update","Vehicle",new {item.ID})'" class="item" data-toggle="tooltip" data-placement="top" title="Düzenle">
+                                        <i class="zmdi zmdi-edit"></i>
+                                    </button>
+                                    <button class="item btnDelete" data-vhcID="@item.ID" data-toggle="tooltip" data-placement="top" title="Sil">
+                                        <i class="zmdi zmdi-delete"></i>
+                                    </button>
+                                    <button onclick="location.href='@Url.Action("VehicleDetail","Vehicle",new {item.ID})'" class="item" data-toggle="tooltip" data-placement="top" title="Detaylı Görüntüle">
+                                        <i class="zmdi zmdi-more"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(".btnDelete").click(function () {
+            var vehicleID = $(this).attr("data-vhcID");
+
+            $.ajax({
+                url: "/Vehicle/Delete/" + vehicleID,
+                type: "GET",
+                success: function (response) {
+                    if (response == "ok") {
+                        alert("Araç silindi");
+                        window.location.reload();
+                    }
+                    else {
+                        alert("HATA");
+                    }
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,140 @@
+﻿@using Transivo.Model.Models
+@model Vehicle
+@{
+    ViewBag.Title = "VehicleDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section style=" height:120px"></section>
+<!--== Login Page Content Start ==-->
+<section id="lgoin-page-wrap" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 m-auto">
+                <div class="login-page-content">
+                    <div style="text-align:center;width:500px;background-color:orange;border-radius:10px">
+                        <br />
+                        <h2>Araç Detay</h2>
+                        <hr>
+                        <table class="table table-striped">
+                            <tr>
+                                <th scope="row">Şoför Adı Soyadı</th>
+                                <td>@Model.Driver.FirstName @Model.Driver.Lastname</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Plaka</th>
+                                <td>@Model.Plate</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Renk</th>
+                                <td>@Model.Color</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Marka</th>
+                                <td>@Model.Brand</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Araç Tipi</th>
+                                <td>@Model.Type</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ticari Adı</th>
+                                <td>@Model.CommercialName</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Model Yılı</th>
+                                <td>@Model.ModelYear.ToShortDateString()</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Araç Sınıfı</th>
+                                <td>@Model.CarClass</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Araç Cinsi</th>
+                                <td>@Model.Genus</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Motor Gücü</th>
+                                <td>@Model.MotorPower</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">İlk Kayıt Tarihi</th>
+                                <td>@Model.RegistrationFirstDate.ToShortDateString()</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Kayıt Tarihi</th>
+                                <td>@Model.RegistrationDate.ToShortDateString()</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Kayıt Numarası</th>
+                                <td>@Model.RegistrationNo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Motor Numarası</th>
+                                <td>@Model.MotorNo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Şasi Numarası</th>
+                                <td>@Model.ChasisNo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Net Ağırlık</th>
+                                <td>@Model.WeightNet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Kantar Ağırlığı</th>
+                                <td>@Model.WeightWeigher</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Koltuk Sayısı</th>
+                                <td>@Model.SeatsOfNumber</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Silindir Hacmi</th>
+                                <td>@Model.CylinderVolume</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Yakıt Tipi</th>
+                                <td>@Model.FuelType</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Amacı</th>
+                                <td>@Model.PurposeOf</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Güç Ağırlık Oranı</th>
+                                <td>@Model.PowerToWeightRatio</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Maksimum Ağırlık</th>
+                                <td>@Model.MaxLoadWeight</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Noter Adı Soyadı</th>
+                                <td>@Model.NotaryName</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Doküman Seri No</th>
+                                <td>@Model.DocumentSerialNo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Noter Satış Numarası</th>
+                                <td>@Model.NotarySalesNo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Noter Satış Tarihi</th>
+                                <td>@Model.NoterySalesDate.ToShortDateString()</td>
+                            </tr>
+                        </table>
+                        <br />
+                        <div class="form-group">
+                            @Html.ActionLink("Geri Dön", "ListVehicles", null, new { @class = "btn btn-primary" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--== Login Page Content End ==-->

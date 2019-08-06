@@ -1,0 +1,6 @@
+C:\Users\eneso\source\Workspaces\Transivo\Transivo.Exception\bin\Debug\Transivo.Exception.dll
+C:\Users\eneso\source\Workspaces\Transivo\Transivo.Exception\bin\Debug\Transivo.Exception.pdb
+C:\Users\eneso\source\Workspaces\Transivo\Transivo.Exception\obj\Debug\Transivo.Exception.csproj.CoreCompileInputs.cache
+C:\Users\eneso\source\Workspaces\Transivo\Transivo.Exception\obj\Debug\Transivo.Exception.dll
+C:\Users\eneso\source\Workspaces\Transivo\Transivo.Exception\obj\Debug\Transivo.Exception.pdb
+C:\Users\eneso\Source\Workspaces\Transivo\Transivo.Exception\obj\Debug\Transivo.Exception.csprojAssemblyReference.cache
