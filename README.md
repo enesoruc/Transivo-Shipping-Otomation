@@ -10,21 +10,17 @@ Ana Sayfa:
 Nakliye:
 >* Kullanıcılar burada yapmış oldukarı seçimlere göre firmaların birim fiyatları üzerinden ödeyecekleri ortalama ücreti görebilirler.
 >* İşleme devam etmek isteyen kullanıcılar giriş yapmak zorundadır. Kayıtlı olmayan kullanıcılar nakliye talebi oluşturamamakla birlikte kayıt olduktan sonra işlemlerine devam edebilirler.
-
-resim
+![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/Shipping.png)
 
 Firmalar:
 >* Kullanıcılar burada sisteme kayıtlı tüm firmalar ile ilgili detaylı bilgilere ulaşabilirler.
->* Dileyen kullanıcılar Guest kullanıcı profili olarak, gerekli bilgilerini girdikten sonra sistem üzerinden mesaj atabilirler.
-
-resim
+>* Dileyen kullanıcılar Guest kullanıcı profili olarak, gerekli bilgilerini girdikten sonra sistem üzerinden mesaj gönderebilirler.
+![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/CompanyDetaill.png)
 
 Giriş Ekranı:
 >* Kullanıcı ve Firma girişleri ayrı ekranlardan gerçekleştirilmektedir.
 >* Bilgilerin doğruluğu kontrol edildikten sonra giriş ekranına yönlendirme yapılır.
-
-login resim
-
+![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/LoginPage.png)
 ### Admin
 
 Ana Sayfa:
@@ -36,40 +32,34 @@ Ana Sayfa:
    * Toplam Kazanç gibi bilgileri görüntüleyebilir.
    * Kullanıcılar tarafından gönderilmiş mesajlar,
    * Aktif onay bekleyen nakliyeler ve detaylarını görüntüleyebilir.
-
-Admin Home resim
+![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/Admin%20Panel.png)
 
 Nakliye Menü:
 >* Yetkili bu menü üzerinden: Taşıma durumundaki nakliyeler ve Onay bekleyen nakliye talepleri ile ilgili tüm detayları görüntüleyebilir
 * Mevcut Nakliyeler
-
-resim
+![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListShippings.png)
 
 * Onay Bekleyen Nakliyeler
-
-resim
+![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListWait.png)
 
 Sürücü Menü:
 >* Yetkili bu menü üzerinden: Firmaya kayıtlı sürücüleri görüntüleyebilir veya yeni sürücü kaydı yapabilir.
 
 * Sürücü Kayıt
-
-resim
+![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/DriverRegister.png)
 
 * Sürücü Listesi
-
-resim
+![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListDrivers.png)
 
 Araç Menü:
 >* Yetkili bu menü üzerinden: Firmaya kayıtlı araçları görüntüleyebilir veya yeni araç kaydı yapabilir.
 
 * Araç Kayıt
-
-resim
+![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/DriverRegister.png)
 
 * Araç Listesi
+![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListVehicles.png)
 
 Mesajları Görüntüle:
 >* Yetkili bu menü üzerinden: Kullanıcıların firmaya sistem üzerinden göndermiş olduğu mesajları, tarih filtrelerine göre görüntüleyebilir.
-
-resim
+![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListMessages.png)
