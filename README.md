@@ -36,28 +36,28 @@ Ana Sayfa:
 
 Nakliye Menü:
 >* Yetkili bu menü üzerinden: Taşıma durumundaki nakliyeler ve Onay bekleyen nakliye talepleri ile ilgili tüm detayları görüntüleyebilir
-* Mevcut Nakliyeler
+ >* Mevcut Nakliyeler
 ![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListShippings.png)
 
-* Onay Bekleyen Nakliyeler
+>* Onay Bekleyen Nakliyeler
 ![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListWait.png)
 
 Sürücü Menü:
 >* Yetkili bu menü üzerinden: Firmaya kayıtlı sürücüleri görüntüleyebilir veya yeni sürücü kaydı yapabilir.
 
-* Sürücü Kayıt
+>* Sürücü Kayıt
 ![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/DriverRegister.png)
 
-* Sürücü Listesi
+>* Sürücü Listesi
 ![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListDrivers.png)
 
 Araç Menü:
 >* Yetkili bu menü üzerinden: Firmaya kayıtlı araçları görüntüleyebilir veya yeni araç kaydı yapabilir.
 
-* Araç Kayıt
+>* Araç Kayıt
 ![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/DriverRegister.png)
 
-* Araç Listesi
+>* Araç Listesi
 ![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListVehicles.png)
 
 Mesajları Görüntüle:
